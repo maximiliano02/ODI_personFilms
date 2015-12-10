@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title><h:outputText value="#{msg['peopleMovies.people.title']}" /></title>
+    </h:head>
+    <h:body>
+        <h2>
+            <h:outputText value="#{msg['peopleMovies.people.title']}" />
+        </h2>
+
+        <h:form>
+            <h:dataTable var="person" value="#{peopleMoviesBean.people}">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.number']}" />
+                    </f:facet>
+                    <h:commandLink value="#{person.id}" action="#{peopleMoviesBean.showPerson(person)}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.firstName']}" />
+                    </f:facet>
+                    <h:commandLink value="#{person.firstName}" action="#{peopleMoviesBean.showPerson(person)}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.lastName']}" />
+                    </f:facet>
+                    <h:commandLink value="#{person.lastName}" action="#{peopleMoviesBean.showPerson(person)}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.lastName']}" />
+                    </f:facet>
+                    <h:commandLink value="#{person.lastName}" action="#{peopleMoviesBean.showPerson(person)}" />
+                </h:column>
+            </h:dataTable>
+
+            <br/>
+            <!--<h:commandButton id="cmdBtnAddCustomer" value="#{msg['button.label.add']}" action="createCustomer" />-->
+        </h:form>
+
+    </h:body>
+</html>
+
