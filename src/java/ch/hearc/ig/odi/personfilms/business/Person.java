@@ -19,7 +19,7 @@ public class Person {
     private Long id;
     private String firstName;
     private String lastName;    
-    private Map<String, Movie> movies;
+    private Map<Long, Movie> movies;
 
     public Person(Long id, String firstName, String lastName) {
         this.id = id;
@@ -30,8 +30,8 @@ public class Person {
     
     public void addMovie(Movie movie) throws UniqueException {
         
-        if(!movies.containsKey(movie.getName())){
-            movies.put(movie.getName(), movie);
+        if(!movies.containsKey(movie.getId())){
+            movies.put(movie.getId(), movie);
         }else{
             throw new UniqueException("Le film a déja été regardé par la personne");
         }

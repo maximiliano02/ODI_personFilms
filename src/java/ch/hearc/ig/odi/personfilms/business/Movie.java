@@ -5,6 +5,7 @@
  */
 package ch.hearc.ig.odi.personfilms.business;
 
+import ch.hearc.ig.odi.personfilms.exception.UniqueException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,13 +19,22 @@ public class Movie {
     private Long id;
     private String name;
     private String producer;
-    private Map<String, Person> people;
+    private Map<Long, Person> people;
 
     public Movie(Long id, String name, String producer) {
         this.id = id;
         this.name = name;
         this.producer = producer;
         people = new HashMap<>();
+    }
+    
+    public void addPerson(Person person) throws UniqueException {
+        
+        if(!people.containsKey(person.getId())){
+            people.put(person.getId(), person);
+        }else{
+            throw new UniqueException("La personne a deja vu ce film");
+        }
     }
 
     public Long getId() {
