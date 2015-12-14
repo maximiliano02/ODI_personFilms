@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>#{msg['movie.title']}</h1>
+        <h:outputText value="#{msg['movie.id']}"/>
+        <h:outputText styleClass="output" value="#{movieDetailBean.movie.id}"/><br />
+        <h:outputText value="#{msg['movie.name']}"/>
+        <h:outputText styleClass="output" value="#{movieDetailBean.movie.name}"/><br />
+        <h:outputText value="#{msg['movie.producer']}"/>
+        <h:outputText styleClass="output" value="#{movieDetailBean.movie.producer}"/>
+        
+        <h2>#{msg['movie.films']}</h2>
+        <h:form>
+            <h:dataTable var="person" value="#{movieDetailBean.people}">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.id']}" />
+                    </f:facet>
+                    <h:outputText value="#{person.id}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.firstName']}" />
+                    </f:facet>
+                    <h:commandLink value="#{person.firstName}" action="#{personDetailBean.showPerson(person)}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.lastName']}" />
+                    </f:facet>
+                    <h:commandLink value="#{person.lastName}" action="#{personDetailBean.showPerson(person)}" />
+                </h:column>
+            </h:dataTable>
+
+            <br/>
+        </h:form>
+    </h:body>
+</html>
+

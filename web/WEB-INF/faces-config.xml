@@ -17,12 +17,37 @@
         </resource-bundle>
     </application>
     
+    <navigation-rule> <!-- Retour depuis n'importe ou vers accueil -->
+        <from-view-id>*.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>peopleMovies</from-outcome>
+            <to-view-id>/peopleMovies.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/peopleMovies.xhtml</from-view-id> <!-- Page de départ -->
+        
         <navigation-case>
             <from-action>#{personDetailBean.showPerson(person)}</from-action> <!-- Sur l'action -->    
-            <from-outcome>success</from-outcome> <!-- Si succès -->
+            <from-outcome>show</from-outcome> <!-- Si succès -->
             <to-view-id>/personDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{personDetailBean.showPerson(person)}</from-action>          
+            <from-outcome>error</from-outcome> <!-- Si erreur -->
+            <to-view-id>/peopleMovies.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-action>#{movieDetailBean.showMovie(movie)}</from-action> <!-- Sur l'action -->    
+            <from-outcome>show</from-outcome> <!-- Si succès -->
+            <to-view-id>/movieDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{movieDetailBean.showMovie(movie)}</from-action>          
+            <from-outcome>error</from-outcome> <!-- Si erreur -->
+            <to-view-id>/peopleMovies.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
