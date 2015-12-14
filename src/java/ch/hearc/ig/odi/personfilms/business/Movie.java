@@ -65,6 +65,14 @@ public class Movie {
         this.producer = producer;
     }
 
+    public Map<Long, Person> getPeople() {
+        return people;
+    }
+
+    public void setPeople(Map<Long, Person> people) {
+        this.people = people;
+    }
+
     
     
     

@@ -34,7 +34,4 @@ public class PeopleMoviesBean {
         return services.getMoviesList();
     }
     
-    public String showPerson(Person person){
-        return "";
-    }
 }

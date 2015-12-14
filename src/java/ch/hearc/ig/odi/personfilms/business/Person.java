@@ -64,5 +64,15 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public Map<Long, Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(Map<Long, Movie> movies) {
+        this.movies = movies;
+    }
+    
+    
     
 }

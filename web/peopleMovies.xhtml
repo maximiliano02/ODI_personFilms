@@ -29,7 +29,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msg['person.lastName']}" />
                     </f:facet>
-                    <h:commandLink value="#{person.lastName}" action="#{peopleMoviesBean.showPerson(person)}" />
+                    <h:commandLink value="#{person.lastName}" action="#{personDetailBean.showPerson(person)}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">
@@ -58,7 +58,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msg['movie.name']}" />
                     </f:facet>
-                    <h:outputText value="#{movie.name}" />
+                    <h:commandLink value="#{movie.name}" action="#{movieDetailBean.showMovie(movie)}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">
