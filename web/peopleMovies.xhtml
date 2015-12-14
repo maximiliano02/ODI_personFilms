@@ -15,15 +15,15 @@
             <h:dataTable var="person" value="#{peopleMoviesBean.people}">
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msg['person.number']}" />
+                        <h:outputText value="#{msg['person.id']}" />
                     </f:facet>
-                    <h:commandLink value="#{person.id}" action="#{peopleMoviesBean.showPerson(person)}" />
+                    <h:outputText value="#{person.id}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msg['person.firstName']}" />
                     </f:facet>
-                    <h:commandLink value="#{person.firstName}" action="#{peopleMoviesBean.showPerson(person)}" />
+                    <h:commandLink value="#{person.firstName}" action="#{personDetailBean.showPerson(person)}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">
@@ -33,14 +33,48 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msg['person.lastName']}" />
+                        <h:outputText value="#{msg['person.nbMovies']}" />
                     </f:facet>
-                    <h:commandLink value="#{person.lastName}" action="#{peopleMoviesBean.showPerson(person)}" />
+                    <h:outputText value="#{person.nbMovies}" />
                 </h:column>
             </h:dataTable>
 
             <br/>
-            <!--<h:commandButton id="cmdBtnAddCustomer" value="#{msg['button.label.add']}" action="createCustomer" />-->
+        </h:form>
+        
+        <h2>
+            <h:outputText value="#{msg['peopleMovies.movies.title']}" />
+        </h2>
+
+        <h:form>
+            <h:dataTable var="movie" value="#{peopleMoviesBean.movies}">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['movie.id']}" />
+                    </f:facet>
+                    <h:outputText value="#{movie.id}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['movie.name']}" />
+                    </f:facet>
+                    <h:outputText value="#{movie.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['movie.producer']}" />
+                    </f:facet>
+                    <h:outputText value="#{movie.producer}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.nbMovies']}" />
+                    </f:facet>
+                    <h:outputText value="#{movie.nbPerson}" />
+                </h:column>
+            </h:dataTable>
+
+            <br/>
         </h:form>
 
     </h:body>

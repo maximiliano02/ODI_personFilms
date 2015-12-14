@@ -36,6 +36,10 @@ public class Person {
             throw new UniqueException("Le film a déja été regardé par la personne");
         }
     }
+    
+    public int getNbMovies(){
+        return movies.size();
+    }
 
     public Long getId() {
         return id;

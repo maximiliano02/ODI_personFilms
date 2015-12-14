@@ -36,6 +36,10 @@ public class Movie {
             throw new UniqueException("La personne a deja vu ce film");
         }
     }
+    
+    public int getNbPerson(){
+        return people.size();
+    }
 
     public Long getId() {
         return id;
